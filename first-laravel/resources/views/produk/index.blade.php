@@ -11,18 +11,18 @@
       <th>Stok</th>
       <th>Aksi</th>
     </tr>
-    @forelse ($id as $i)
+    @forelse ($produk as $p)
       <tr>
         <td>{{ $loop->iteration }}</td>
-        <td>{{ $i['nama'] }}</td>
-        <td>Rp {{ number_format($i['harga'], 0, ',', '.') }}</td>
+        <td>{{ $p['nama'] }}</td>
+        <td>Rp {{ number_format($p['harga'], 0, ',', '.') }}</td>
         <td>
-          @if ($i['stok'] > 10) Aman
-          @elseif ($i['stok'] > 0) Menipis
+          @if ($p['stok'] > 10) Aman
+          @elseif ($p['stok'] > 0) Menipis
           @else Habis
           @endif
         </td>
-        <td><a href="{{ route('produk.show', $i['id']) }}">Detail</a></td>
+        <td><a href="{{ route('produk.show', $p['id']) }}">Detail</a></td>
       </tr>
     @empty
       <tr>
